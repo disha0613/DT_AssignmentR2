@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Board</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        /* Sidebar Adjustments */
+        #sidebar {
+            position: fixed;
+            top: 64px; /* Adjust to match the height of your header */
+            left: 0;
+            width: 250px; /* Adjust based on your layout */
+            height: calc(100vh - 64px); /* Full height minus the header height */
+            background: white;
+            padding: 16px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            z-index: 5;
+        }
+
+        .header {
+            height: 64px; /* Ensure header height is 64px */
+            background: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body {
+            padding-top: 64px; /* Ensures content does not overlap the fixed header */
+        }
+
+        .rounded-container {
+            background: #f3f4f6;
+            border-radius: 12px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rounded-container input {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            padding: 8px;
+            flex: 1;
+        }
+
+        .dropdown-container {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .dropdown-container select {
+            flex: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex">
+        <!-- Sidebar -->
+        <div id="sidebar" class="bg-white text-black p-4 h-full hidden pl-8" role="navigation">
+            <div class="journey-board">
+                <div class="flex justify-between items-center p-4 bg-black text-white rounded-md mb-4 border-l-4 border-black">
+                    <h3 class="font-bold">Journey Board</h3>
+                    <div id="closeArrowButton" class="circle-arrow bg-white w-10 h-10 flex items-center justify-center rounded-full border border-black cursor-pointer hidden" onclick="toggleSidebar()">
+                        <span class="arrow text-black font-bold text-xl">&#8592;</span>
+                    </div>
+                </div>
+            </div>
+            <ul class="list-disc pl-5 text-sm">
+                <li>Explore the world of management</li>
+                <li>Technical Project Management</li>
+                <li>Threadbuild</li>
+                <li>Structure your pointers</li>
+                <li>4SA Method</li>
+            </ul>
+        </div>
+
+        <!-- Open Arrow Section -->
+        <div class="flex flex-col items-center bg-gray-200 p-4">
+            <div class="bg-black w-14 h-14 flex items-center justify-center rounded-md">
+                <div class="circle-arrow bg-white w-10 h-10 flex items-center justify-center rounded-full border border-black cursor-pointer" id="openArrowButton" onclick="toggleSidebar()">
+                    <span class="arrow text-black font-bold text-xl">&#8594;</span>
+                </div>
+            </div>
+            <div class="w-10 h-10 bg-blue-800 text-white flex items-center justify-center font-bold rounded mt-4 shadow">
+                <span class="text-blue-800 bg-white w-8 h-8 flex items-center justify-center rounded">1</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1">
+            <header class="header bg-white shadow-md flex items-center p-4">
+                <img src="logo.png" alt="Logo" class="header-logo w-24 h-16 object-contain">
+                <div class="flex flex-col items-center space-y-2">
+                    <div class="icon-wrapper flex space-x-2">
+                        <img src="icon 1.png" alt="Icon 1" class="w-8 h-8" />
+                        <img src="icon 2.png" alt="Icon 2" class="w-8 h-8" />
+                        <img src="icon 3.png" alt="Icon 3" class="w-8 h-8" />
+                        <img src="Ellipse 53.png" alt="Icon 4" class="w-8 h-8" />
+                    </div>
+                </div>
+
+            </header>
+
+            <main class="p-8 mt-6 relative">
+                <div class="flex items-center mb-4">
+                    <h2 class="text-2xl font-bold text-blue-800">Technical Project Management</h2>
+                </div>
+
+                <button class="bg-blue-800 text-white font-bold py-2 px-4 rounded-full absolute right-0 top-0 mt-7 mr-4">
+                    Submit Task
+                </button>
+
+                <div class="content-grid">
+                    <!-- Card 1: Technical Project Management -->
+                    <div class="content-box">
+                        <div class="card-header">
+                            <h2>Technical Project Management</h2>
+                            <div class="info-circle">i</div>
+                        </div>
+                        <p><strong>Description:</strong> Story of Alignment Scope of Agility Specific Accountable Strategic Approach</p>
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/TiMRwri1xJ8" title="Video"></iframe>
+                    </div>
+
+                    <!-- Card 2: Threadbuild -->
+                    <div class="content-box">
+                        <div class="card-header">
+                            <h2>Threadbuild</h2>
+                            <div class="info-circle">i</div>
+                        </div>
+                        <p><strong>Description:</strong> Watch the video and thread build, and jot key threads while watching that video.</p>
+                        <div class="thread-box">
+                            <div class="rounded-container">
+                                <div>
+                                    <label for="sub-thread-1" class="block text-sm font-medium text-gray-700">Sub Thread 1</label>
+                                    <input type="text" id="sub-thread-1" placeholder="Enter Text Here">
+                                </div>
+                            </div>
+                            <div class="rounded-container">
+                                <div>
+                                    <label for="sub-thread-2" class="block text-sm font-medium text-gray-700">Sub Thread 2</label>
+                                    <input type="text" id="sub-thread-2" placeholder="Enter Text Here">
+                                </div>
+                            </div>
+                            <div class="dropdown-container">
+                                <select id="select-category" class="rounded-lg border border-gray-300 p-2" aria-label="Select Category">
+                                    <option>Select Category</option>
+                                    <option>Category 1</option>
+                                    <option>Category 2</option>
+                                    <option>Category 3</option>
+                                </select>
+                                <select id="select-process" class="rounded-lg border border-gray-300 p-2" aria-label="Select Process">
+                                    <option>Select Process</option>
+                                    <option>Process 1</option>
+                                    <option>Process 2</option>
+                                    <option>Process 3</option>
+                                </select>
+                            </div>
+                            <button class="mt-4 bg-blue-800 text-white font-bold py-2 px-4 rounded">Save Thread</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Structure Your Pointers -->
+                    <div class="content-box">
+                        <div class="card-header">
+                            <h2>Structure Your Pointers</h2>
+                            <div class="info-circle">i</div>
+                        </div>
+                        <p><strong>Description:</strong> Write a 400-500 word article, form your thread, publish your understanding, and showcase your learning to the entire world.</p>
+                        <div class="pointer-box">
+                            <input type="text" placeholder="Title" class="pointer-input">
+                            <textarea rows="5" placeholder="Content"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: 4SA Method -->
+                    <div class="content-box">
+                        <div class="card-header">
+                            <h2>4SA Method</h2>
+                            <div class="info-circle">i</div>
+                        </div>
+                        <p><strong>Description:</strong> To explore more and more.</p>
+                        <div class="section">
+                            <p><strong>Introduction:</strong> The 4SA Method, How to bring an idea into process?</p>
+                            <p><strong>Thread A:</strong> How are you going to develop your strategy? What methods will you use to execute it effectively?</p>
+                            <p><strong>Example 1:</strong> You have a concept; how will you put it into practice?</p>
+                        </div>
+                    </div>
+
